@@ -9,20 +9,19 @@ import SwiftUI
 
 struct SliderView: View {
     
+    @State private var sliderValue = Double.random(in: 1...255)
     let sliderColor: Color
-    
-    let sliderValue: Double
-    let textField: String
+    @State private var textField = ""
     
     var body: some View {
         
         HStack(spacing: 20) {
             Text(lround(sliderValue).formatted()).foregroundColor(.black)
                 .font(.largeTitle)
-            Slider(value: sliderValue, in: 0...255, step: 1)
+            Slider(value: $sliderValue, in: 0...255, step: 1)
                 .accentColor(sliderColor)
                 .font(.largeTitle)
-            TextField("", text: textField)
+            TextField("", text: $textField)
                 .bordered()
             
         }
@@ -55,5 +54,6 @@ extension TextField {
 
 struct SliderView_Previews: PreviewProvider {
     static var previews: some View {
-        SliderView(sliderColor: .red, sliderValue: 1...255, textField: "")
+        SliderView(sliderColor: .red)
+    }
 }

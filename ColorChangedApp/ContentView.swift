@@ -14,8 +14,11 @@ struct ContentView: View {
         VStack {
             Rectangle()
                 .frame(width: 300, height: 150)
+                .cornerRadius(10)
                 
-            SliderView(sliderColor: .red, sliderValue: 1...255, textField: "")
+            SliderView(sliderColor: .red)
+            SliderView(sliderColor: .blue)
+            SliderView(sliderColor: .green)
         }
         
     }
